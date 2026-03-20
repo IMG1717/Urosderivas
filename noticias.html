@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><link rel="stylesheet" href="styles.css"></head>
+<body>
+<h1>Noticias</h1>
+<div id="news"></div>
+<button onclick="addNews()">Añadir noticia</button>
+<script>
+let news=[];
+function render(){document.getElementById('news').innerHTML=news.map(n=>`<div class='card'><h3>${n.t}</h3><p>${n.d}</p></div>`).join('');}
+function addNews(){let t=prompt('Título');let d=prompt('Texto');news.push({t,d});render();}
+</script>
+</body></html>
