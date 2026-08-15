@@ -494,3 +494,22 @@ footer {
   .footer-main { grid-template-columns: 1fr; gap: 30px; }
   .footer-bottom { flex-direction: column; gap: 8px; }
 }
+
+/* ==============================
+   PATROCINADORES
+   ============================== */
+.sponsors-section { background: #fff; overflow: hidden; }
+.sponsors-intro { max-width: 720px; margin: 14px auto 0; color: var(--gray); font-size: 13px; line-height: 1.8; }
+.sponsors-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 42px; }
+.sponsor-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 30px rgba(11,13,15,.08); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; overflow: hidden; }
+.sponsor-card:hover { transform: translateY(-6px); box-shadow: 0 20px 42px rgba(11,13,15,.13); border-color: rgba(197,168,74,.75); }
+.sponsor-logo-wrap { height: 190px; padding: 24px; display: grid; place-items: center; background: #fff; border-bottom: 1px solid var(--line); }
+.sponsor-logo { width: 100%; height: 100%; object-fit: contain; }
+.sponsor-body { padding: 25px; }
+.sponsor-tag { margin: 0 0 8px; color: var(--gold); font-size: 9px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.sponsor-body h3 { margin: 0 0 10px; font-size: 23px; letter-spacing: -.03em; }
+.sponsor-body p { margin: 0; color: var(--gray); font-size: 12px; line-height: 1.75; }
+.sponsor-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--turquoise); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.sponsor-link:hover { color: var(--gold); }
+@media (max-width: 900px) { .sponsors-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .sponsors-grid { grid-template-columns: 1fr; } .sponsor-logo-wrap { height: 170px; } }
