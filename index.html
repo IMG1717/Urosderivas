@@ -6,6 +6,127 @@
   <title>UROS DE RIVAS | Club de Baloncesto</title>
   <meta name="description" content="Web oficial de UROS DE RIVAS - Club de Baloncesto">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================================
+       PATROCINADORES - CARRUSEL
+       ========================================================= */
+
+    .sponsors-carousel {
+      width: 100%;
+      max-width: 1250px;
+      margin: 45px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      overflow: hidden;
+    }
+
+    .sponsors-viewport {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .sponsors-track {
+      display: flex;
+      gap: 25px;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+
+    .sponsor-banner {
+      flex: 0 0 calc((100% - 50px) / 3);
+      height: 210px;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      transition: transform .25s ease, box-shadow .25s ease;
+      text-decoration: none;
+    }
+
+    .sponsor-banner:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    }
+
+    .sponsor-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .sponsor-arrow {
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: #1013f1;
+      color: #fff;
+      font-size: 23px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s ease;
+      z-index: 2;
+    }
+
+    .sponsor-arrow:hover {
+      transform: scale(1.08);
+    }
+
+    .sponsor-dots {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .sponsor-dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #aaa;
+      cursor: pointer;
+    }
+
+    .sponsor-dot.active {
+      background: #1013f1;
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 900px) {
+      .sponsor-banner {
+        flex-basis: calc((100% - 25px) / 2);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sponsors-carousel {
+        gap: 8px;
+      }
+
+      .sponsor-banner {
+        flex-basis: 100%;
+        height: 190px;
+      }
+
+      .sponsor-arrow {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+        font-size: 19px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,16 +142,12 @@
   <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
 
   <nav class="main-nav">
-    <a href="index.html#inicio">Inicio</a>
-    <a href="campus.html">Campus</a>
-    <a href="index.html#torneos">Torneos y salidas</a>
-    <a href="index.html#eventos">Eventos</a>
-    <a href="index.html#tienda">Tienda</a>
-    <a href="index.html#equipos">Equipos</a>
-    <a href="index.html#noticias">Noticias</a>
-    <a href="patrocinadores.html">Patrocinadores</a>
-    <a href="index.html#contacto">Contacto</a>
-    </nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#secciones">Secciones</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#patrocinadores">Patrocinadores</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 </header>
 
 <main id="inicio">
@@ -58,7 +175,7 @@
     </div>
 
     <div class="card-grid">
-      <a class="feature-card card-campus" href="campus.html">
+      <a class="feature-card card-campus" href="#">
         <span class="card-icon">🏀</span>
         <div>
           <p>01</p>
@@ -171,43 +288,81 @@
     <a class="btn btn-light" href="#contacto">CONTACTA CON NOSOTROS</a>
   </section>
 
+  <!-- =======================================================
+       PATROCINADORES
+       Solo se muestran las imágenes en el carrusel.
+       ======================================================= -->
   <section class="sponsors-section section" id="patrocinadores">
+
     <div class="section-heading center">
       <p class="eyebrow">GRACIAS POR HACERLO POSIBLE</p>
       <h2>Nuestros patrocinadores</h2>
-      <p class="sponsors-intro">
-        Empresas y profesionales que apoyan a UROS DE RIVAS y hacen posible seguir creciendo junto a nuestros jugadores y familias.
-      </p>
     </div>
 
-    <div class="sponsors-grid">
-      <a class="sponsor-card" href="https://academiapentalfa.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar la web de Pentalfa">
-        <div class="sponsor-logo-wrap">
-          <img class="sponsor-logo" src="img/PENTALFA.jpg" alt="Pentalfa - Centro de estudios">
+    <div class="sponsors-carousel" aria-label="Patrocinadores">
+
+      <button class="sponsor-arrow sponsor-prev" aria-label="Patrocinador anterior">
+        &#10094;
+      </button>
+
+      <div class="sponsors-viewport">
+        <div class="sponsors-track">
+
+          <!-- PENTALFA -->
+          <a
+            class="sponsor-banner"
+            href="https://academiapentalfa.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Pentalfa"
+          >
+            <img src="img/pentalfa.jpg" alt="Pentalfa">
+          </a>
+
+          <!-- DEMOVI -->
+          <a
+            class="sponsor-banner"
+            href="#"
+            aria-label="deMovi"
+          >
+            <img
+              src="img/demovi.jpg"
+              alt="deMovi - deporte modo de vida"
+            >
+          </a>
+
+          <!-- PALOMA MAZARÍAS -->
+          <a
+            class="sponsor-banner"
+            href="https://psicologiapmazarias.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Paloma Mazarías"
+          >
+            <img
+              src="img/paloma-mazarias.jpg"
+              alt="Paloma Mazarías - Centro de Psicología"
+            >
+          </a>
+
         </div>
-        <div class="sponsor-body">
-          <p class="sponsor-tag">Patrocinador UROS DE RIVAS</p>
-          <h3>Pentalfa</h3>
-          <p>Centro de estudios especializado en refuerzo y apoyo escolar, preparación de EvAU y pruebas de acceso, con grupos reducidos y atención personalizada.</p>
-          <span class="sponsor-link">Visitar web →</span>
-        </div>
-      </a>
+      </div>
+
+      <button class="sponsor-arrow sponsor-next" aria-label="Siguiente patrocinador">
+        &#10095;
+      </button>
+
     </div>
+
+    <div class="sponsor-dots" aria-label="Seleccionar patrocinador">
+      <button class="sponsor-dot active" aria-label="Patrocinador 1"></button>
+      <button class="sponsor-dot" aria-label="Patrocinador 2"></button>
+      <button class="sponsor-dot" aria-label="Patrocinador 3"></button>
+    </div>
+
   </section>
 
 </main>
-
-
-<section class="sponsor-carousel-footer" aria-label="Patrocinadores">
-  <div class="sponsor-carousel-track">
-    <a class="sponsor-carousel-item" href="https://academiapentalfa.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar la web de Pentalfa">
-      <img src="img/PENTALFA.jpg" alt="Pentalfa">
-    </a>
-    <a class="sponsor-carousel-item" href="https://academiapentalfa.com/" target="_blank" rel="noopener noreferrer" aria-label="Visitar la web de Pentalfa">
-      <img src="img/PENTALFA.jpg" alt="Pentalfa">
-    </a>
-  </div>
-</section>
 
 <footer id="contacto">
   <div class="footer-main">
@@ -245,5 +400,98 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+  /* =========================================================
+     CARRUSEL DE PATROCINADORES
+     ========================================================= */
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const track = document.querySelector(".sponsors-track");
+    const prev = document.querySelector(".sponsor-prev");
+    const next = document.querySelector(".sponsor-next");
+    const dots = document.querySelectorAll(".sponsor-dot");
+    const sponsors = document.querySelectorAll(".sponsor-banner");
+
+    if (!track || !prev || !next || !sponsors.length) return;
+
+    let current = 0;
+    let timer;
+
+    function visibleCount() {
+      if (window.innerWidth <= 600) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+
+    function maxIndex() {
+      return Math.max(0, sponsors.length - visibleCount());
+    }
+
+    function update() {
+      const first = sponsors[0];
+      if (!first) return;
+
+      const gap = 25;
+      const width = first.getBoundingClientRect().width;
+
+      track.style.transform =
+        "translateX(-" + (current * (width + gap)) + "px)";
+
+      dots.forEach(function(dot, index) {
+        dot.classList.toggle("active", index === current);
+      });
+    }
+
+    function goNext() {
+      current++;
+      if (current > maxIndex()) current = 0;
+      update();
+    }
+
+    function goPrev() {
+      current--;
+      if (current < 0) current = maxIndex();
+      update();
+    }
+
+    next.addEventListener("click", function() {
+      goNext();
+      restart();
+    });
+
+    prev.addEventListener("click", function() {
+      goPrev();
+      restart();
+    });
+
+    dots.forEach(function(dot, index) {
+      dot.addEventListener("click", function() {
+        current = Math.min(index, maxIndex());
+        update();
+        restart();
+      });
+    });
+
+    function start() {
+      timer = setInterval(goNext, 4500);
+    }
+
+    function restart() {
+      clearInterval(timer);
+      start();
+    }
+
+    window.addEventListener("resize", function() {
+      if (current > maxIndex()) current = maxIndex();
+      update();
+    });
+
+    update();
+    start();
+  });
+</script>
+
 </body>
 </html>
