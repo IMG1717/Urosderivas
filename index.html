@@ -9,13 +9,84 @@
 
   <style>
     /* =========================================================
-       PATROCINADORES - CARRUSEL
+       PATROCINADORES
+       ========================================================= */
+
+    .sponsors-section {
+      overflow: hidden;
+    }
+
+    .sponsors-intro {
+      max-width: 760px;
+      margin: 12px auto 0;
+      text-align: center;
+    }
+
+    .sponsor-cards {
+      max-width: 1200px;
+      margin: 40px auto 55px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .sponsor-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.10);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .sponsor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.16);
+    }
+
+    .sponsor-card-link {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .sponsor-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .sponsor-card h3 {
+      margin: 18px 0 8px;
+    }
+
+    .sponsor-card p {
+      margin: 0;
+      line-height: 1.6;
+      opacity: .85;
+    }
+
+    .sponsor-card .sponsor-web {
+      display: inline-block;
+      margin-top: 15px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       CARRUSEL DE BANNERS
        ========================================================= */
 
     .sponsors-carousel {
       width: 100%;
       max-width: 1250px;
-      margin: 45px auto 0;
+      margin: 35px auto 0;
       display: flex;
       align-items: center;
       gap: 18px;
@@ -30,7 +101,7 @@
     .sponsors-track {
       display: flex;
       gap: 25px;
-      transition: transform 0.5s ease;
+      transition: transform .5s ease;
       will-change: transform;
     }
 
@@ -104,12 +175,20 @@
     }
 
     @media (max-width: 900px) {
+      .sponsor-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .sponsor-banner {
         flex-basis: calc((100% - 25px) / 2);
       }
     }
 
     @media (max-width: 600px) {
+      .sponsor-cards {
+        grid-template-columns: 1fr;
+      }
+
       .sponsors-carousel {
         gap: 8px;
       }
@@ -290,16 +369,113 @@
 
   <!-- =======================================================
        PATROCINADORES
-       Solo se muestran las imágenes en el carrusel.
        ======================================================= -->
   <section class="sponsors-section section" id="patrocinadores">
 
     <div class="section-heading center">
       <p class="eyebrow">GRACIAS POR HACERLO POSIBLE</p>
       <h2>Nuestros patrocinadores</h2>
+      <p class="sponsors-intro">
+        Empresas y profesionales que apoyan a UROS DE RIVAS
+        y hacen posible que sigamos creciendo juntos.
+      </p>
     </div>
 
-    <div class="sponsors-carousel" aria-label="Patrocinadores">
+    <!-- SECCIÓN DE PATROCINADORES CON INFORMACIÓN -->
+    <div class="sponsor-cards">
+
+      <!-- PENTALFA -->
+      <article class="sponsor-card">
+        <a
+          class="sponsor-card-link"
+          href="https://academiapentalfa.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="img/pentalfa.jpg" alt="Pentalfa">
+        </a>
+
+        <h3>Pentalfa</h3>
+
+        <p>
+          Academia especializada en formación y apoyo educativo,
+          acompañando a estudiantes en su aprendizaje y desarrollo.
+        </p>
+
+        <a
+          class="sponsor-web"
+          href="https://academiapentalfa.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visitar web →
+        </a>
+      </article>
+
+      <!-- DEMOVI -->
+      <article class="sponsor-card">
+        <a
+          class="sponsor-card-link"
+          href="#"
+          aria-label="deMovi"
+        >
+          <img
+            src="img/demovi.jpg"
+            alt="deMovi - deporte modo de vida"
+          >
+        </a>
+
+        <h3>deMovi</h3>
+
+        <p>
+          Proyecto vinculado al deporte y a un estilo de vida activo,
+          promoviendo el deporte como una forma de vivir y disfrutar.
+        </p>
+
+        <a
+          class="sponsor-web"
+          href="#"
+          aria-label="Web de deMovi"
+        >
+          Visitar web →
+        </a>
+      </article>
+
+      <!-- PALOMA MAZARÍAS -->
+      <article class="sponsor-card">
+        <a
+          class="sponsor-card-link"
+          href="https://psicologiapmazarias.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="img/paloma-mazarias.jpg"
+            alt="Paloma Mazarías - Centro de Psicología"
+          >
+        </a>
+
+        <h3>Paloma Mazarías</h3>
+
+        <p>
+          Centro de psicología dedicado al acompañamiento y
+          bienestar psicológico de niños, jóvenes y adultos.
+        </p>
+
+        <a
+          class="sponsor-web"
+          href="https://psicologiapmazarias.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visitar web →
+        </a>
+      </article>
+
+    </div>
+
+    <!-- CARRUSEL: SOLO IMÁGENES/BANNERS -->
+    <div class="sponsors-carousel" aria-label="Banners de patrocinadores">
 
       <button class="sponsor-arrow sponsor-prev" aria-label="Patrocinador anterior">
         &#10094;
@@ -308,7 +484,6 @@
       <div class="sponsors-viewport">
         <div class="sponsors-track">
 
-          <!-- PENTALFA -->
           <a
             class="sponsor-banner"
             href="https://academiapentalfa.com/"
@@ -319,19 +494,14 @@
             <img src="img/pentalfa.jpg" alt="Pentalfa">
           </a>
 
-          <!-- DEMOVI -->
           <a
             class="sponsor-banner"
             href="#"
             aria-label="deMovi"
           >
-            <img
-              src="img/demovi.jpg"
-              alt="deMovi - deporte modo de vida"
-            >
+            <img src="img/demovi.jpg" alt="deMovi - deporte modo de vida">
           </a>
 
-          <!-- PALOMA MAZARÍAS -->
           <a
             class="sponsor-banner"
             href="https://psicologiapmazarias.com/"
@@ -402,95 +572,91 @@
 <script src="script.js"></script>
 
 <script>
-  /* =========================================================
-     CARRUSEL DE PATROCINADORES
-     ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-  document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".sponsors-track");
+  const prev = document.querySelector(".sponsor-prev");
+  const next = document.querySelector(".sponsor-next");
+  const dots = document.querySelectorAll(".sponsor-dot");
+  const sponsors = document.querySelectorAll(".sponsor-banner");
 
-    const track = document.querySelector(".sponsors-track");
-    const prev = document.querySelector(".sponsor-prev");
-    const next = document.querySelector(".sponsor-next");
-    const dots = document.querySelectorAll(".sponsor-dot");
-    const sponsors = document.querySelectorAll(".sponsor-banner");
+  if (!track || !prev || !next || !sponsors.length) return;
 
-    if (!track || !prev || !next || !sponsors.length) return;
+  let current = 0;
+  let timer;
 
-    let current = 0;
-    let timer;
+  function visibleCount() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  }
 
-    function visibleCount() {
-      if (window.innerWidth <= 600) return 1;
-      if (window.innerWidth <= 900) return 2;
-      return 3;
-    }
+  function maxIndex() {
+    return Math.max(0, sponsors.length - visibleCount());
+  }
 
-    function maxIndex() {
-      return Math.max(0, sponsors.length - visibleCount());
-    }
+  function update() {
+    const first = sponsors[0];
+    if (!first) return;
 
-    function update() {
-      const first = sponsors[0];
-      if (!first) return;
+    const gap = 25;
+    const width = first.getBoundingClientRect().width;
 
-      const gap = 25;
-      const width = first.getBoundingClientRect().width;
-
-      track.style.transform =
-        "translateX(-" + (current * (width + gap)) + "px)";
-
-      dots.forEach(function(dot, index) {
-        dot.classList.toggle("active", index === current);
-      });
-    }
-
-    function goNext() {
-      current++;
-      if (current > maxIndex()) current = 0;
-      update();
-    }
-
-    function goPrev() {
-      current--;
-      if (current < 0) current = maxIndex();
-      update();
-    }
-
-    next.addEventListener("click", function() {
-      goNext();
-      restart();
-    });
-
-    prev.addEventListener("click", function() {
-      goPrev();
-      restart();
-    });
+    track.style.transform =
+      "translateX(-" + (current * (width + gap)) + "px)";
 
     dots.forEach(function(dot, index) {
-      dot.addEventListener("click", function() {
-        current = Math.min(index, maxIndex());
-        update();
-        restart();
-      });
+      dot.classList.toggle("active", index === current);
     });
+  }
 
-    function start() {
-      timer = setInterval(goNext, 4500);
-    }
-
-    function restart() {
-      clearInterval(timer);
-      start();
-    }
-
-    window.addEventListener("resize", function() {
-      if (current > maxIndex()) current = maxIndex();
-      update();
-    });
-
+  function goNext() {
+    current++;
+    if (current > maxIndex()) current = 0;
     update();
-    start();
+  }
+
+  function goPrev() {
+    current--;
+    if (current < 0) current = maxIndex();
+    update();
+  }
+
+  next.addEventListener("click", function () {
+    goNext();
+    restart();
   });
+
+  prev.addEventListener("click", function () {
+    goPrev();
+    restart();
+  });
+
+  dots.forEach(function (dot, index) {
+    dot.addEventListener("click", function () {
+      current = Math.min(index, maxIndex());
+      update();
+      restart();
+    });
+  });
+
+  function start() {
+    timer = setInterval(goNext, 4500);
+  }
+
+  function restart() {
+    clearInterval(timer);
+    start();
+  }
+
+  window.addEventListener("resize", function () {
+    if (current > maxIndex()) current = maxIndex();
+    update();
+  });
+
+  update();
+  start();
+});
 </script>
 
 </body>
